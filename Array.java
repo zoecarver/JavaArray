@@ -18,9 +18,8 @@ public class Array<T> {
       Array<Integer> array = new Array<Integer>(8024);
       array.set(20, 0);
       System.out.format("get: %d ", array.get(0));
-      // array.testUnsafe();
     } catch (Exception e) {
-      System.out.println("Error");
+      System.out.println("Error: ");
       System.out.println(e.getMessage());
     }
   }
@@ -71,10 +70,5 @@ public class Array<T> {
     ObjectInputStream si = new ObjectInputStream(bi);
     T object = (T) si.readObject();
     return object;
-  }
-
-  private void testUnsafe () throws Exception {
-    unsafe.putInt(address + 0, 10);
-    System.out.format("%d ", unsafe.getInt(address + 0));
   }
 }
