@@ -41,13 +41,13 @@ public class Array<T> {
   public void set (T value, int index) throws Exception  {
     byte[] bytes = this.serialize(value);
     for (long i = 0; i < bytes.length; i++)
-      unsafe.putInt(address + index + i, (int)bytes[(int)i]);
+      unsafe.putByte(address + index + i, bytes[(int)i]);
   }
 
   public T get (int index) throws Exception  {
     byte[] bytes = new byte[(int)blockSize];
     for (long i = address + index; i < address + index + blockSize; i++)
-      bytes[(int)(i - address - index)] = (byte)unsafe.getInt(i);
+      bytes[(int)(i - address - index)] = unsafe.getByte(i);
     return deserialize(bytes);
   }
 
