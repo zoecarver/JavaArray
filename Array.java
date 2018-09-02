@@ -24,12 +24,8 @@ public class Array<T> {
     }
   }
 
-  Array (long size) {
-    try {
-      unsafe = getUnsafe();
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    }
+  Array (long size) throws Exception {
+    unsafe = getUnsafe();
     size = size;
     address = unsafe.allocateMemory(size);
     index = 0;
