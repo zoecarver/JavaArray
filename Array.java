@@ -10,7 +10,6 @@ public class Array<T> {
   private Unsafe unsafe;
   private long size;
   private long address;
-  private int index;
   private long blockSize;
 
   public static void main(String[] args) {
@@ -28,7 +27,6 @@ public class Array<T> {
     unsafe = getUnsafe();
     size = size;
     address = unsafe.allocateMemory(size);
-    index = 0;
   }
 
   @SuppressWarnings("sunapi")
